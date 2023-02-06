@@ -12,6 +12,16 @@ describe("PlanetName component tests", () => {
     const labelText = screen.getByLabelText("Planet Name");
     expect(labelText).toBeInTheDocument();
   });
+
+  it("given the planetName props when the component is rendered then value from props should displayed", () => {
+    const planetNameProps = {
+      planetName: "Mars",
+      onChangePlanetName: jest.fn(),
+    };
+    render(<PlanetName {...planetNameProps} />);
+
+    expect(screen.getByRole("textbox")).toHaveValue("Mars");
+  });
 });
 
-//Should call changeHandler onChange on input
+// GIVEN the planetName props WHEN onChange is called SHOULD be called onChangePlanetName,
