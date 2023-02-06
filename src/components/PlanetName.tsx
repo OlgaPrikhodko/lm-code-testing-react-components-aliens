@@ -8,6 +8,7 @@ const PlanetName: React.FC<PlanetNameProps> = ({
   onChangePlanetName,
 }) => {
   const label = "Planet Name";
+
   return (
     <div>
       <label htmlFor="planetName">{label}</label>
