@@ -11,7 +11,12 @@ const PlanetName: React.FC<PlanetNameProps> = ({
   return (
     <div>
       <label htmlFor="planetName">{label}</label>
-      <input type="text" value={planetName} onChange={onChangePlanetName} />
+      <input
+        type="text"
+        value={planetName}
+        onChange={onChangePlanetName}
+        id="planetName"
+      />
     </div>
   );
 };
