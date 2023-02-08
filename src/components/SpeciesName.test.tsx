@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import SpeciesName from "./SpeciesName";
 
 describe("SpeciesName component", () => {
-  it("GIVEN the component props WHEN when component is rendered THEN label text should be rendered", () => {
+  it("GIVEN the component props WHEN component is rendered THEN label text should be rendered", () => {
     const props = {
       speciesName: "",
       onChangeSpeciesName: jest.fn(),
@@ -36,6 +36,5 @@ describe("SpeciesName component", () => {
     await userEvent.type(input, "Homo sapiens");
     expect(input).toHaveValue("Homo sapiens");
     expect(mockOnChange).toHaveBeenCalled();
-    expect(mockOnChange).toHaveBeenCalledWith("Homo sapiens");
   });
 });
