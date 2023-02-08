@@ -18,9 +18,7 @@ const WhatIs2plus2: React.FC<WhatIs2plus2Props> = ({
 }) => {
   const label = "What is 2 + 2?";
 
-  const onChangeWhatIs2plus2 = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-
+  const onChangeWhatIs2plus2 = (value: string) => {
     if (isOfAnswer(value)) setWhatIs2plus2(value);
   };
 
@@ -30,7 +28,7 @@ const WhatIs2plus2: React.FC<WhatIs2plus2Props> = ({
       <select
         name="whatIs2plus2"
         id="whatIs2plus2"
-        onChange={onChangeWhatIs2plus2}
+        onChange={e => onChangeWhatIs2plus2(e.target.value)}
       >
         {ANSWERS.map(answ => (
           <option value="whatIs2plus2" key={answ}>
