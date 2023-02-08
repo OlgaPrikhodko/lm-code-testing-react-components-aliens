@@ -24,7 +24,7 @@ describe("PlanetName component tests", () => {
     expect(screen.getByRole("textbox")).toHaveValue("Mars");
   });
 
-  it("GIVEN the planetName props WHEN onChange is called SHOULD be called onChangePlanetName", async () => {
+  it("GIVEN the planetName props WHEN onChange is called THEN onChangePlanetName should be called", async () => {
     const mockChange = jest.fn();
     const planetNameProps = {
       planetName: "",
