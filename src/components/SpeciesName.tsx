@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import ErrorMessage from "./ErrorMessage";
 interface SpeciesNameProps {
   speciesName: string;
   onChangeSpeciesName(e: React.ChangeEvent<HTMLInputElement>): void;
@@ -35,7 +35,7 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({
         }}
         id="speciesName"
       />
-      {errorMessage && <p>{errorMessage}</p>}
+      <ErrorMessage errorMessage={errorMessage} />
     </div>
   );
 };
