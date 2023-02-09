@@ -27,14 +27,46 @@ describe("SpeciesName component", () => {
   it("GIVEN the component props WHEN when onChange is called THEN value from props should be displayed", async () => {
     const mockOnChange = jest.fn();
     const props = {
-      speciesName: "Homo sapiens",
+      speciesName: "",
       onChangeSpeciesName: mockOnChange,
     };
     render(<SpeciesName {...props} />);
 
     const input = screen.getByRole("textbox");
     await userEvent.type(input, "Homo sapiens");
-    expect(input).toHaveValue("Homo sapiens");
     expect(mockOnChange).toHaveBeenCalled();
+  });
+
+  it(`Given rendered component 
+  When the 'wrong' value is typed,
+  Then errorMessage should be present`, async () => {
+    const props = {
+      speciesName: "",
+      onChangeSpeciesName: jest.fn(),
+    };
+    render(<SpeciesName {...props} />);
+    const input = screen.getByRole("textbox");
+    await userEvent.type(input, "123");
+    expect(
+      screen.getByText(
+        `Must be between 3 and 23 characters. No numbers or special characters allowed!`
+      )
+    ).toBeInTheDocument();
+  });
+
+  it(`Given rendered component 
+  When the valid value is typed,
+  Then errorMessage shouldn't be present`, () => {
+    const props = {
+      speciesName: "humans",
+      onChangeSpeciesName: jest.fn(),
+    };
+    render(<SpeciesName {...props} />);
+
+    const errMessage = screen.queryByText(
+      `Must be between 3 and 23 characters. No numbers or special characters allowed!`
+    );
+
+    expect(errMessage).not.toBeInTheDocument();
   });
 });

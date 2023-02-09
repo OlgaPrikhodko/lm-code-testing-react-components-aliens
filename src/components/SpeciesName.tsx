@@ -22,6 +22,13 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({
     return undefined;
   };
 
+  // tried to set message if have predefined value
+  // let error: string | undefined;
+  // if (speciesName) {
+  //   error = validate(speciesName);
+  //   if (error) setErrorMessage(error);
+  // }
+
   return (
     <div>
       <label htmlFor="speciesName">{label}</label>
@@ -29,8 +36,8 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({
         type="text"
         value={speciesName}
         onChange={e => {
-          const errorMessage = validate(e.target.value);
-          setErrorMessage(errorMessage);
+          const errMessage = validate(e.target.value);
+          setErrorMessage(errMessage);
           onChangeSpeciesName(e);
         }}
         id="speciesName"
