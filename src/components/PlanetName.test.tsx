@@ -39,4 +39,36 @@ describe("PlanetName component tests", () => {
     await user.type(input, "Mars");
     expect(mockChange).toHaveBeenCalled();
   });
+
+  it(`Given rendered component 
+  When the 'wrong' value is typed,
+  Then errorMessage should be present`, async () => {
+    const planetNameProps = {
+      planetName: "",
+      onChangePlanetName: jest.fn(),
+    };
+    render(<PlanetName {...planetNameProps} />);
+    const input = screen.getByRole("textbox");
+    await userEvent.type(input, "1");
+    expect(
+      screen.getByText(
+        `Must be between 2 and 49 characters. Numbers are allowed, but no special characters.`
+      )
+    ).toBeInTheDocument();
+  });
+
+  it(`Given rendered component 
+  When the valid value is typed,
+  Then errorMessage shouldn't be present`, () => {
+    const planetNameProps = {
+      planetName: "",
+      onChangePlanetName: jest.fn(),
+    };
+    render(<PlanetName {...planetNameProps} />);
+    expect(
+      screen.queryByText(
+        `Must be between 2 and 49 characters. Numbers are allowed, but no special characters.`
+      )
+    ).not.toBeInTheDocument();
+  });
 });
