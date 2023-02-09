@@ -3,7 +3,7 @@ import ErrorMessage from "./ErrorMessage";
 
 interface PlanetNameProps {
   planetName: string;
-  onChangePlanetName(e: React.ChangeEvent<HTMLInputElement>): void;
+  onChangePlanetName(newValue: string): void;
 }
 
 const PlanetName: React.FC<PlanetNameProps> = ({
@@ -32,7 +32,7 @@ const PlanetName: React.FC<PlanetNameProps> = ({
         onChange={e => {
           const errMessage = validate(e.target.value);
           setErrorMessage(errMessage);
-          onChangePlanetName(e);
+          onChangePlanetName(e.target.value);
         }}
         id="planetName"
       />

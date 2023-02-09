@@ -36,15 +36,13 @@ const W12MForm = () => {
       <W12MHeader />
       <SpeciesName
         speciesName={speciesName}
-        onChangeSpeciesName={e => setSpeciesName(e.target.value)}
+        onChangeSpeciesName={setSpeciesName}
       />
-      <PlanetName
-        planetName={planetName}
-        onChangePlanetName={e => setPlanetName(e.target.value)}
-      />
+      <PlanetName planetName={planetName} onChangePlanetName={setPlanetName} />
+
       <NumberOfBeings
         numberOfBeings={numberOfBeings}
-        onChangeNumberOfBeings={e => setNumberOfBeings(e.target.value)}
+        onChangeNumberOfBeings={setNumberOfBeings}
       />
       <WhatIs2plus2
         whatIs2plus2={whatIs2plus2}
@@ -52,7 +50,7 @@ const W12MForm = () => {
       />
       <ReasonForSparing
         reasonForSparing={reasonForSparing}
-        onChangeReasonOfSparing={e => setReasonForSparing(e.target.value)}
+        onChangeReasonOfSparing={setReasonForSparing}
       />
       <input type="submit" onClick={collectData} />
 

@@ -3,7 +3,7 @@ import ErrorMessage from "./ErrorMessage";
 
 interface NumberOfBeingsProps {
   numberOfBeings: string;
-  onChangeNumberOfBeings(e: React.ChangeEvent<HTMLInputElement>): void;
+  onChangeNumberOfBeings(newValue: string): void;
 }
 
 const NumberOfBeings: React.FC<NumberOfBeingsProps> = ({
@@ -32,7 +32,7 @@ const NumberOfBeings: React.FC<NumberOfBeingsProps> = ({
         onChange={e => {
           const errMessage = validate(e.target.value);
           setErrorMessage(errMessage);
-          onChangeNumberOfBeings(e);
+          onChangeNumberOfBeings(e.target.value);
         }}
       />
       <ErrorMessage errorMessage={errorMessage} />

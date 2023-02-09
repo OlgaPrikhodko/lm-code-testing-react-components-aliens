@@ -3,7 +3,7 @@ import ErrorMessage from "./ErrorMessage";
 
 interface ReasonForSparingProps {
   reasonForSparing: string;
-  onChangeReasonOfSparing(e: React.ChangeEvent<HTMLTextAreaElement>): void;
+  onChangeReasonOfSparing(newValue: string): void;
 }
 
 const ReasonForSparing: React.FC<ReasonForSparingProps> = ({
@@ -30,7 +30,7 @@ const ReasonForSparing: React.FC<ReasonForSparingProps> = ({
         onChange={e => {
           const errMessage = validate(e.target.value);
           setErrorMessage(errMessage);
-          onChangeReasonOfSparing(e);
+          onChangeReasonOfSparing(e.target.value);
         }}
       ></textarea>
       <ErrorMessage errorMessage={errorMessage} />
