@@ -22,6 +22,7 @@ const DisplayFormData: React.FC<DisplayFormDataProps> = ({
           <p>Entered Values:</p>
           {speciesName}, {planetName}, {numberOfBeings}, {whatIs2plus2},{" "}
           {reasonForSparing}
+          <p>Ok, lets look for another planet!</p>
         </div>
       )}
     </>
