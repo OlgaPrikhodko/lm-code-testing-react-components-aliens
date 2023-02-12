@@ -8,11 +8,11 @@ import ReasonForSparing from "./ReasonForSparing";
 import DisplayFormData from "./DisplayFormData";
 
 const W12MForm = () => {
-  const [speciesName, setSpeciesName] = useState<string>("humans");
+  const [speciesName, setSpeciesName] = useState<string>("");
 
-  const [planetName, setPlanetName] = useState<string>("Mars");
+  const [planetName, setPlanetName] = useState<string>("");
 
-  const [numberOfBeings, setNumberOfBeings] = useState<string>("2");
+  const [numberOfBeings, setNumberOfBeings] = useState<string>("");
 
   const [whatIs2plus2, setWhatIs2plus2] = useState<Answer>("4");
 
