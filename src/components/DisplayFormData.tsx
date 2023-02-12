@@ -19,10 +19,13 @@ const DisplayFormData: React.FC<DisplayFormDataProps> = ({
     <>
       {showData && (
         <div>
-          <p>Entered Values:</p>
+          <p>Your entered Values:</p>
           {speciesName}, {planetName}, {numberOfBeings}, {whatIs2plus2},{" "}
           {reasonForSparing}
-          <p>Ok, lets look for another planet!</p>
+          <p>
+            This is exteremely convincing arguments! Ok, lets look for another
+            planet!
+          </p>
         </div>
       )}
     </>
