@@ -17,9 +17,12 @@ const NumberOfBeings: React.FC<NumberOfBeingsProps> = ({
 
   const validate: (value: string) => string | undefined = value => {
     const errorMessage = `Numbers ONLY. Must be at least 1,000,000,000`;
-    if (value.length < 10 || !/^[0-9 ]+$/.test(value)) return errorMessage;
-
-    return undefined;
+    if (
+      value.length < 10 ||
+      !/^[0-9 ]+$/.test(value) ||
+      parseInt(value) < 2000000000
+    )
+      return errorMessage;
   };
 
   return (
@@ -27,12 +30,13 @@ const NumberOfBeings: React.FC<NumberOfBeingsProps> = ({
       <label htmlFor="numberOfBeings">{label}</label>
       <input
         id="numberOfBeings"
-        type="text"
+        type="number"
         value={numberOfBeings}
         onChange={e => {
-          const errMessage = validate(e.target.value);
+          const value = e.target.value;
+          const errMessage = validate(value);
           setErrorMessage(errMessage);
-          onChangeNumberOfBeings(e.target.value);
+          if (errMessage !== undefined) onChangeNumberOfBeings(value);
         }}
       />
       <ErrorMessage errorMessage={errorMessage} />
