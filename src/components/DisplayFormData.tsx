@@ -15,13 +15,13 @@ const DisplayFormData: React.FC<DisplayFormDataProps> = ({
   whatIs2plus2,
   reasonForSparing,
 }) => {
+  const resultCollection = `${speciesName}, ${planetName}, ${numberOfBeings}, ${whatIs2plus2}, ${reasonForSparing}`;
   return (
     <>
       {showData && (
         <div>
           <p>Your entered Values:</p>
-          {speciesName}, {planetName}, {numberOfBeings}, {whatIs2plus2},{" "}
-          {reasonForSparing}
+          {resultCollection}
           <p>
             This is exteremely convincing arguments! Ok, lets look for another
             planet!

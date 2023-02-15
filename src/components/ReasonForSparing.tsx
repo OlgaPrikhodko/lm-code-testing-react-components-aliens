@@ -25,6 +25,7 @@ const ReasonForSparing: React.FC<ReasonForSparingProps> = ({
     <div>
       <label htmlFor="reasonForSparing">{label}</label>
       <textarea
+        id="reasonForSparing"
         name="reasonForSparing"
         value={reasonForSparing}
         onChange={e => {
