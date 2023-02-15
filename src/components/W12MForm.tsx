@@ -20,19 +20,18 @@ const W12MForm = () => {
 
   const [showData, setShowData] = useState(false);
 
-  const collectData = () => {
+  const showFormData = () => {
     setShowData(true);
-    console.log(
-      speciesName,
-      planetName,
-      numberOfBeings,
-      whatIs2plus2,
-      reasonForSparing
-    );
   };
 
   return (
-    <section className="w12MForm">
+    <form
+      className="w12MForm"
+      onSubmit={e => {
+        e.preventDefault();
+        showFormData();
+      }}
+    >
       <W12MHeader />
       <SpeciesName
         speciesName={speciesName}
@@ -52,7 +51,7 @@ const W12MForm = () => {
         reasonForSparing={reasonForSparing}
         onChangeReasonOfSparing={setReasonForSparing}
       />
-      <input type="submit" onClick={collectData} />
+      <input type="submit" />
 
       {showData && (
         <DisplayFormData
@@ -64,7 +63,7 @@ const W12MForm = () => {
           reasonForSparing={reasonForSparing}
         />
       )}
-    </section>
+    </form>
   );
 };
 
