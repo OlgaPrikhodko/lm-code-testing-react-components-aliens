@@ -18,7 +18,7 @@ describe("NumberOfBeings", () => {
       onChangeNumberOfBeings: jest.fn(),
     };
     render(<NumberOfBeings {...props} />);
-    expect(screen.getByRole("textbox")).toHaveValue("10");
+    expect(screen.getByRole("spinbutton")).toHaveValue(10);
   });
 
   it("GIVEN component props WHEN onChange is called THEN onChangeNumberOfBeings should be called", async () => {
@@ -28,7 +28,7 @@ describe("NumberOfBeings", () => {
       onChangeNumberOfBeings: mockChange,
     };
     render(<NumberOfBeings {...props} />);
-    const input = screen.getByRole("textbox");
+    const input = screen.getByRole("spinbutton");
     expect(input).toBeInTheDocument();
 
     await userEvent.type(input, "22");
@@ -43,7 +43,7 @@ describe("NumberOfBeings", () => {
       onChangeNumberOfBeings: jest.fn(),
     };
     render(<NumberOfBeings {...props} />);
-    const input = screen.getByRole("textbox");
+    const input = screen.getByRole("spinbutton");
     await userEvent.type(input, "123");
 
     expect(
