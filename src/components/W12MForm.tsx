@@ -14,7 +14,7 @@ const W12MForm = () => {
 
   const [numberOfBeings, setNumberOfBeings] = useState<string>("");
 
-  const [whatIs2plus2, setWhatIs2plus2] = useState<Answer>("4");
+  const [whatIs2plus2, setWhatIs2plus2] = useState<Answer>("Not 4");
 
   const [reasonForSparing, setReasonForSparing] = useState("");
 

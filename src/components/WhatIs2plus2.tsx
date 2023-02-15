@@ -48,7 +48,7 @@ const WhatIs2plus2: React.FC<WhatIs2plus2Props> = ({
         }}
       >
         {ANSWERS.map(answ => (
-          <option value={answ} key={answ}>
+          <option value={answ} key={answ} selected={answ === whatIs2plus2}>
             {answ}
           </option>
         ))}
